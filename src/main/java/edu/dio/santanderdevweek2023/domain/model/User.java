@@ -1,4 +1,4 @@
-package edu.dio.santanderdevweek2023.model;
+package edu.dio.santanderdevweek2023.domain.model;
 
 import jakarta.persistence.*;
 
