@@ -5,7 +5,7 @@ import edu.dio.santanderdevweek2023.domain.repository.UserRepository;
 import edu.dio.santanderdevweek2023.service.UserService;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.NoSuchElementException;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -22,10 +22,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User create(User newUser) {
-        if (userRepository.existsByAccountNumber(newUser.getAccount().getNumber())) {
-            throw new IllegalArgumentException("This account number already exists.");
+    public User create(User userToCreate) {
+        if (userRepository.existsByAccountNumber(userToCreate.getAccount().getNumber())) {
+            throw new IllegalArgumentException("This Account number already exists.");
         }
-        return userRepository.save(newUser);
+        return userRepository.save(userToCreate);
     }
 }
